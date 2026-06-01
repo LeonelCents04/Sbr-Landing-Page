@@ -1,4 +1,13 @@
+import { useState } from 'react'
+
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
@@ -10,7 +19,7 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
@@ -65,6 +74,11 @@ export default function Contact() {
             >
               Send Message
             </button>
+            {submitted && (
+              <p className="text-forest-light text-sm font-medium">
+                Thank you — we&apos;ll be in touch soon!
+              </p>
+            )}
           </form>
 
           <div className="flex flex-col gap-8">
@@ -100,19 +114,19 @@ export default function Contact() {
             <div>
               <p className="text-sm font-medium text-gray-700 mb-3">Follow Us</p>
               <div className="flex gap-4">
-                <a href="#" aria-label="Facebook" className="text-forest hover:text-forest-light transition-colors">
+                <a href="https://www.facebook.com/sbrtetci" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-forest hover:text-forest-light transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
                   </svg>
                 </a>
-                <a href="#" aria-label="Instagram" className="text-forest hover:text-forest-light transition-colors">
+                <a href="https://www.instagram.com/sbrtetci" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-forest hover:text-forest-light transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" strokeWidth={2} />
                     <circle cx="12" cy="12" r="4" strokeWidth={2} />
                     <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
                   </svg>
                 </a>
-                <a href="#" aria-label="Twitter" className="text-forest hover:text-forest-light transition-colors">
+                <a href="https://www.twitter.com/sbrtetci" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-forest hover:text-forest-light transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>

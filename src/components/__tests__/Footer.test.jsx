@@ -7,9 +7,9 @@ describe('Footer', () => {
     expect(screen.getByText('SBR TETCI Bohol')).toBeInTheDocument()
   })
 
-  it('renders the copyright line', () => {
+  it('renders copyright line', () => {
     render(<Footer />)
-    expect(screen.getByText(/© 2026 SBR TETCI Bohol/i)).toBeInTheDocument()
+    expect(screen.getByText(new RegExp(`© ${new Date().getFullYear()} SBR TETCI Bohol`, 'i'))).toBeInTheDocument()
   })
 
   it('renders nav links', () => {

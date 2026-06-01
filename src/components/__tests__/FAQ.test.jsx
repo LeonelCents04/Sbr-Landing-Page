@@ -22,9 +22,15 @@ describe('FAQ', () => {
     expect(screen.getByText(/TESDA-accredited technical education/i)).toBeInTheDocument()
   })
 
-  it('clicking the second question shows its answer', () => {
+  it('clicking the second question shows its answer and closes the first', () => {
     render(<FAQ />)
+    // First item is open by default
+    expect(screen.getByText(/TESDA-accredited technical education/i)).toBeInTheDocument()
+    // Click second question
     fireEvent.click(screen.getByText('Are your programs TESDA-accredited?'))
+    // Second answer now visible
     expect(screen.getByText(/all our programs are accredited/i)).toBeInTheDocument()
+    // First answer now hidden
+    expect(screen.queryByText(/TESDA-accredited technical education/i)).not.toBeInTheDocument()
   })
 })
