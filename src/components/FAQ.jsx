@@ -53,8 +53,9 @@ export default function FAQ() {
               <div key={question} className="rounded-2xl bg-white overflow-hidden">
                 <button
                   type="button"
+                  aria-expanded={isOpen}
                   className="w-full flex items-center justify-between px-6 py-5 text-left"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
                 >
                   <span className="text-forest font-medium text-sm">{question}</span>
                   <svg

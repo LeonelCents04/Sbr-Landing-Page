@@ -17,6 +17,7 @@ export default function Contact() {
               </label>
               <input
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Your full name"
                 className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-forest bg-beige text-gray-800 text-sm"
@@ -28,6 +29,7 @@ export default function Contact() {
               </label>
               <input
                 id="email"
+                name="email"
                 type="email"
                 placeholder="your@email.com"
                 className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-forest bg-beige text-gray-800 text-sm"
@@ -39,6 +41,7 @@ export default function Contact() {
               </label>
               <input
                 id="phone"
+                name="phone"
                 type="tel"
                 placeholder="+63 900 000 0000"
                 className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-forest bg-beige text-gray-800 text-sm"
@@ -50,6 +53,7 @@ export default function Contact() {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={5}
                 placeholder="How can we help you?"
                 className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-forest bg-beige text-gray-800 text-sm resize-none"

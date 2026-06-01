@@ -11,7 +11,7 @@ const items = [
 
 export default function Gallery() {
   return (
-    <section className="py-24 bg-beige">
+    <section id="gallery" className="py-24 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
