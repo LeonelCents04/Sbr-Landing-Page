@@ -37,8 +37,15 @@ describe('Programs', () => {
     expect(screen.getByText(/Electrical Installation/i)).toBeInTheDocument()
   })
 
-  it('renders 6 Learn More links', () => {
+  it('renders Other TESDA Programs card', () => {
     render(<Programs />)
-    expect(screen.getAllByRole('link', { name: 'Learn More' })).toHaveLength(6)
+    expect(screen.getByText(/Other TESDA Programs/i)).toBeInTheDocument()
+  })
+
+  it('renders 6 Learn More links all pointing to #contact', () => {
+    render(<Programs />)
+    const links = screen.getAllByRole('link', { name: 'Learn More' })
+    expect(links).toHaveLength(6)
+    links.forEach(link => expect(link).toHaveAttribute('href', '#contact'))
   })
 })

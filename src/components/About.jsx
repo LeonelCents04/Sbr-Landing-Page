@@ -45,7 +45,7 @@ export default function About() {
           </ul>
         </div>
 
-        <div className="flex items-center justify-center">
+        <div className="hidden md:flex items-center justify-center">
           <div className="w-full aspect-square max-w-md rounded-3xl bg-forest/15 flex items-center justify-center">
             <span className="text-forest/40 text-sm font-medium">Image placeholder</span>
           </div>
