@@ -46,8 +46,14 @@ export default function About() {
         </div>
 
         <div className="hidden md:flex items-center justify-center">
-          <div className="w-full aspect-square max-w-md rounded-3xl bg-forest/15 flex items-center justify-center">
-            <span className="text-forest/40 text-sm font-medium">Image placeholder</span>
+          <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden">
+            <img
+              src="/about-photo.jpg"
+              alt="SBR TETCI director"
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 rounded-3xl ring-1 ring-forest/10 pointer-events-none" />
+            <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-beige/60 to-transparent" />
           </div>
         </div>
       </div>

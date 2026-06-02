@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-8">
           <div>
-            <span className="text-white font-bold text-2xl tracking-tight">SBR TETCI Bohol</span>
+            <img src="/logo.png" alt="SBR TETCI Bohol logo" className="h-14 w-auto brightness-0 invert" />
             <p className="text-white/50 text-sm mt-1">Building careers through technical excellence.</p>
           </div>
           <ul className="flex flex-wrap gap-6">
@@ -24,7 +24,7 @@ export default function Footer() {
             ))}
           </ul>
           <div className="flex gap-4">
-            <a href="https://www.facebook.com/sbrtetci" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/60 hover:text-white transition-colors">
+            <a href="https://www.facebook.com/sbrtetcibohol" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/60 hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
