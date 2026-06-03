@@ -11,13 +11,13 @@ const items = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-24 bg-beige">
+    <section id="gallery" className="py-16 md:py-24 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             Our Campus
           </p>
-          <h2 className="text-4xl font-bold text-forest">Campus & Training</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">Campus & Training</h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

@@ -58,16 +58,16 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-24 bg-beige">
+    <section id="why-us" className="py-16 md:py-24 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             Why SBR TETCI
           </p>
-          <h2 className="text-4xl font-bold text-forest">Why Students Choose Us</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">Why Students Choose Us</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
           {features.map(({ title, description, icon }) => (
             <div key={title} className="p-6 rounded-2xl bg-white hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-forest/10 flex items-center justify-center text-forest mb-4">

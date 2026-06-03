@@ -21,16 +21,16 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             Student Stories
           </p>
-          <h2 className="text-4xl font-bold text-forest">What Our Students Say</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">What Our Students Say</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
           {testimonials.map(({ name, program, quote }) => (
             <div key={name} className="p-6 rounded-2xl bg-beige flex flex-col gap-4">
               <svg

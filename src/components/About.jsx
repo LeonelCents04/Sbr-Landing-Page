@@ -6,13 +6,13 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-beige">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-16 md:py-24 bg-beige">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div>
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             About Us
           </p>
-          <h2 className="text-4xl font-bold text-forest mb-6">Who We Are</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest mb-6">Who We Are</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             SBR TETCI Bohol is a TESDA-accredited technical education and training center
             committed to providing quality technical-vocational education in Bohol, Philippines.
@@ -45,7 +45,7 @@ export default function About() {
           </ul>
         </div>
 
-        <div className="hidden md:flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden">
             <img
               src="/about-photo.jpg"

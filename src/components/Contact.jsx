@@ -39,16 +39,16 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             Get in Touch
           </p>
-          <h2 className="text-4xl font-bold text-forest">Enroll or Inquire Today</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">Enroll or Inquire Today</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">

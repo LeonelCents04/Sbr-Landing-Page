@@ -37,20 +37,20 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-black/10" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-12 sm:py-16 md:py-24 w-full">
         <div className="max-w-2xl">
           <div
-            className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm mb-7"
+            className="hero-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm mb-6"
             style={{ animationDelay: '0.1s' }}
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_2px_rgba(52,211,153,0.6)]" />
-            <span className="text-white/90 text-xs font-semibold uppercase tracking-widest">
+            <span className="w-2 h-2 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_6px_2px_rgba(52,211,153,0.6)]" />
+            <span className="text-white/90 text-[10px] sm:text-xs font-semibold uppercase tracking-wide sm:tracking-widest">
               TESDA-Accredited · Bohol, Philippines
             </span>
           </div>
 
           <h1
-            className="hero-fade-up text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6 drop-shadow-lg"
+            className="hero-fade-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-5 drop-shadow-lg"
             style={{ animationDelay: '0.22s' }}
           >
             Build Your<br />Future with<br />
@@ -60,7 +60,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="hero-fade-up text-white/75 text-lg leading-relaxed mb-9"
+            className="hero-fade-up text-white/75 text-base sm:text-lg leading-relaxed mb-7"
             style={{ animationDelay: '0.36s' }}
           >
             Gain industry-ready technical skills through nationally recognized programs.

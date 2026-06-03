@@ -37,13 +37,13 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="py-24 bg-beige">
+    <section className="py-16 md:py-24 bg-beige">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             FAQ
           </p>
-          <h2 className="text-4xl font-bold text-forest">Frequently Asked Questions</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">Frequently Asked Questions</h2>
         </div>
 
         <div className="space-y-3">

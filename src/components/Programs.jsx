@@ -64,16 +64,16 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-24 bg-white">
+    <section id="programs" className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             Our Programs
           </p>
-          <h2 className="text-4xl font-bold text-forest">TESDA-Accredited Training</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">TESDA-Accredited Training</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
           {programs.map(({ title, description, icon }) => (
             <div
               key={title}
