@@ -1,12 +1,12 @@
 const items = [
-  'Campus Entrance',
-  'Training Room',
-  'Welding Workshop',
-  'Computer Lab',
-  'Electrical Workshop',
-  'Classroom',
-  'Graduation Ceremony',
-  'Student Training',
+  { label: 'Campus Entrance',     img: '/images/building/Gemini_Generated_Image_3utx0i3utx0i3utx.png' },
+  { label: 'Training Room',       img: '/images/training/download.jpg' },
+  { label: 'Welding Workshop',    img: '/images/welding-workshop/7ef6616d-4ebe-4fbb-8441-1ab8601426d0.jpg' },
+  { label: 'Computer Lab',        img: '/images/comlab/e9d90d69-3cbe-4bc9-ae9e-a9a0ade9589e.jpg' },
+  { label: 'Electrical Workshop', img: '/images/eim/491421508_1122162209927803_8457322739290891179_n.jpg' },
+  { label: 'Classroom',           img: '/images/classroom/491984406_1125990356211655_731571503159521262_n.jpg' },
+  { label: 'Graduation Ceremony', img: '/images/graduation/490959241_1122198773257480_8834080842989588870_n.jpg' },
+  { label: 'Student Training',    img: '/images/students/491917725_1122261576584533_8712109551692055580_n.jpg' },
 ]
 
 export default function Gallery() {
@@ -21,13 +21,22 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {items.map((label) => (
+          {items.map(({ label, img }) => (
             <div
               key={label}
               data-testid="gallery-item"
-              className="aspect-square rounded-2xl bg-forest/10 flex items-end p-3"
+              className="aspect-square rounded-2xl overflow-hidden bg-forest/10 flex items-end relative"
             >
-              <span className="text-forest/50 text-xs font-medium">{label}</span>
+              {img && (
+                <img
+                  src={img}
+                  alt={label}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
+              <span className="relative z-10 m-3 px-2 py-0.5 rounded-md bg-black/40 text-white text-xs font-medium backdrop-blur-sm">
+                {label}
+              </span>
             </div>
           ))}
         </div>
