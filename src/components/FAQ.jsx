@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useInView } from '../hooks/useInView'
 
 const faqs = [
   {
@@ -35,44 +36,54 @@ const faqs = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
+  const [ref, inView] = useInView()
 
   return (
     <section className="py-16 md:py-24 bg-beige">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-10 md:mb-16">
+        <div
+          className="text-center mb-10 md:mb-16 reveal"
+          style={{ ...(inView && { opacity: 1, transform: 'none' }) }}
+        >
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             FAQ
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">Frequently Asked Questions</h2>
         </div>
 
-        <div className="space-y-3">
+        <div ref={ref} className="space-y-3">
           {faqs.map(({ question, answer }, index) => {
             const isOpen = openIndex === index
             return (
-              <div key={question} className="rounded-2xl bg-white overflow-hidden">
-                <button
-                  type="button"
-                  aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left"
-                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                >
-                  <span className="text-forest font-medium text-sm">{question}</span>
-                  <svg
-                    className={`w-5 h-5 text-forest shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+              <div
+                key={question}
+                className={`reveal${inView ? ' in-view' : ''}`}
+                style={{ transitionDelay: `${index * 60}ms` }}
+              >
+                <div className="rounded-2xl bg-white overflow-hidden">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-150"
+                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {isOpen && (
-                  <div className="px-6 pb-5">
-                    <p className="text-gray-600 text-sm leading-relaxed">{answer}</p>
-                  </div>
-                )}
+                    <span className="text-forest font-medium text-sm">{question}</span>
+                    <svg
+                      className={`w-5 h-5 text-forest shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-5 faq-answer-enter">
+                      <p className="text-gray-600 text-sm leading-relaxed">{answer}</p>
+                    </div>
+                  )}
+                </div>
               </div>
             )
           })}

@@ -14,7 +14,7 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleScroll() {
-      setScrolled(window.scrollY > window.innerHeight * 0.55)
+      setScrolled(window.scrollY > window.innerHeight * 0.3)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -24,7 +24,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-beige border-b border-forest/10'
+          ? 'bg-white/85 backdrop-blur-md border-b border-forest/10 shadow-sm'
           : 'bg-transparent border-b border-white/10'
       }`}
     >
@@ -38,7 +38,7 @@ export default function Navbar() {
           <span className={`text-base font-bold leading-tight transition-colors duration-500 ${
             scrolled ? 'text-forest' : 'text-white'
           }`}>
-            SBR TETCI <span className={scrolled ? 'text-forest-light' : 'text-emerald-400'}>Bohol</span>
+            SBR TETCI Bohol
           </span>
         </a>
 
@@ -47,7 +47,7 @@ export default function Navbar() {
             <li key={label}>
               <a
                 href={href}
-                className={`text-sm font-medium transition-colors duration-300 ${
+                className={`nav-link text-sm font-medium transition-colors duration-300 ${
                   scrolled ? 'text-gray-600 hover:text-forest' : 'text-white/90 hover:text-white'
                 }`}
               >
@@ -61,7 +61,7 @@ export default function Navbar() {
           href="https://www.sbrtetci.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-forest text-white hover:bg-forest-light transition-colors"
+          className="hidden md:inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-forest text-white hover:bg-forest-light active:scale-95 transition-all duration-200"
         >
           Enroll Now
         </a>
@@ -82,12 +82,13 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-beige border-t border-forest/10 px-6 py-4 flex flex-col gap-4">
-          {navLinks.map(({ label, href }) => (
+        <div className="md:hidden bg-white/90 backdrop-blur-md border-t border-forest/10 px-6 py-4 flex flex-col gap-4 menu-enter">
+          {navLinks.map(({ label, href }, i) => (
             <a
               key={label}
               href={href}
               className="text-sm text-gray-600 hover:text-forest transition-colors"
+              style={{ animation: `menu-item-in 200ms cubic-bezier(0.16,1,0.3,1) ${i * 45}ms both` }}
               onClick={() => setMenuOpen(false)}
             >
               {label}
@@ -97,7 +98,8 @@ export default function Navbar() {
             href="https://www.sbrtetci.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-forest text-white text-sm font-medium hover:bg-forest-light transition-colors"
+            className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-forest text-white text-sm font-medium hover:bg-forest-light active:scale-95 transition-all duration-200"
+            style={{ animation: `menu-item-in 200ms cubic-bezier(0.16,1,0.3,1) ${navLinks.length * 45}ms both` }}
             onClick={() => setMenuOpen(false)}
           >
             Enroll Now

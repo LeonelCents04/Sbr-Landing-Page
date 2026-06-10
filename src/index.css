@@ -11,6 +11,7 @@ html {
   scroll-padding-top: 4rem;
 }
 
+/* ── Hero entrance animations ───────────────────────────────── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-14px); }
@@ -38,5 +39,117 @@ html {
 
 .hero-fade-up {
   opacity: 0;
-  animation: fade-up 0.7s ease forwards;
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Hero background scale entrance ────────────────────────── */
+@keyframes hero-bg-enter {
+  from { transform: scale(1.06); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.hero-bg-enter {
+  animation: hero-bg-enter 1800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Scroll reveal ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Nav link hover underline ───────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 220ms ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Mobile menu entrance ───────────────────────────────────── */
+@keyframes menu-slide-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.menu-enter {
+  animation: menu-slide-in 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes menu-item-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── CTA shimmer sweep ──────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+.shimmer-sweep {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 60%
+  );
+  background-size: 300% auto;
+  animation: shimmer 4s linear 2s infinite;
+}
+
+/* ── FAQ answer entrance ────────────────────────────────────── */
+@keyframes faq-answer-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.faq-answer-enter {
+  animation: faq-answer-in 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Error shake ─────────────────────────────────────────────── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-5px); }
+  40%       { transform: translateX(5px); }
+  60%       { transform: translateX(-3px); }
+  80%       { transform: translateX(3px); }
+}
+.animate-shake {
+  animation: shake 400ms ease forwards;
+}
+
+/* ── Reduced-motion overrides ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-fade-up {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-bg-enter,
+  .menu-enter,
+  .shimmer-sweep,
+  .faq-answer-enter,
+  .animate-shake {
+    animation: none !important;
+  }
 }

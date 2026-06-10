@@ -1,3 +1,5 @@
+import { useInView } from '../hooks/useInView'
+
 const features = [
   {
     title: 'TESDA-Aligned Training',
@@ -57,24 +59,38 @@ const features = [
 ]
 
 export default function WhyChooseUs() {
+  const [headingRef, headingInView] = useInView()
+  const [gridRef, gridInView] = useInView()
+
   return (
     <section id="why-us" className="py-16 md:py-24 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-10 md:mb-16">
+
+        <div
+          ref={headingRef}
+          className="text-center mb-10 md:mb-16 reveal"
+          style={{ ...(headingInView && { opacity: 1, transform: 'none' }) }}
+        >
           <p className="text-forest-light text-sm font-semibold uppercase tracking-widest mb-3">
             Why SBR TETCI
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">Why Students Choose Us</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
-          {features.map(({ title, description, icon }) => (
-            <div key={title} className="p-6 rounded-2xl bg-white hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-forest/10 flex items-center justify-center text-forest mb-4">
-                {icon}
+        <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+          {features.map(({ title, description, icon }, i) => (
+            <div
+              key={title}
+              className={`reveal${gridInView ? ' in-view' : ''}`}
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
+              <div className="group p-6 rounded-2xl bg-white border border-transparent hover:border-forest/15 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-forest/10 transition-all duration-300 h-full">
+                <div className="w-12 h-12 rounded-xl bg-forest/10 group-hover:bg-forest/20 flex items-center justify-center text-forest mb-4 transition-all duration-200 group-hover:scale-110">
+                  {icon}
+                </div>
+                <h3 className="text-lg font-semibold text-forest mb-2">{title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-forest mb-2">{title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
